@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Structural and civil engineering portfolio of Yoges Balasubramanian: design projects, research and site experience.">
+<title>Yoges Balasubramanian Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: projects grouped by type (design, research, site, innovation). Each project is a drawing sheet: a title-block strip above the write-up and a figure grid. */
+:root {
+  --paper: #F3F4F1;
+  --sheet: #FBFBF9;
+  --ink: #15191E;
+  --muted: #59626A;
+  --line: #D3D8D4;
+  --accent: #2346A0;
+  --oxide: #A8482A;
+  --accent-soft: #E3E8F5;
+  --chart-surface: #FCFCFB;
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --s3: #1baf7a;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.75rem;
+  --step-3: clamp(2.2rem, 5vw, 3.6rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #101316; --sheet: #161A1E; --ink: #E7E9E5; --muted: #9AA3AA; --line: #2B3238;
+    --accent: #8EA8F2; --oxide: #E2906C; --accent-soft: #1D2640; --chart-surface: #1a1a19;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #101316; --sheet: #161A1E; --ink: #E7E9E5; --muted: #9AA3AA; --line: #2B3238;
+  --accent: #8EA8F2; --oxide: #E2906C; --accent-soft: #1D2640; --chart-surface: #1a1a19;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 48px 72px; display: grid; gap: 56px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.1; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.label { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Masthead */
+.mast { display: grid; gap: 28px; border-bottom: 2px solid var(--ink); padding-bottom: 32px; }
+.mast h1 { font-size: var(--step-3); font-weight: 800; letter-spacing: -0.02em; }
+.mast .role { font-size: var(--step-1); color: var(--muted); margin-top: 8px; }
+.mast-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; align-items: end; }
+.intro { max-width: 62ch; }
+.contact { display: grid; gap: 6px; font-family: var(--font-mono); font-size: 0.875rem; }
+.contact span { user-select: all; }
+.creds { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.creds div { padding: 14px 16px 0 0; display: grid; gap: 2px; }
+.creds strong { font-family: var(--font-display); font-size: var(--step-1); font-weight: 700; }
+.creds span { color: var(--muted); font-size: 0.875rem; }
+
+/* Index */
+.index { display: grid; gap: 16px; }
+.index h2 { font-size: var(--step-2); font-weight: 700; }
+.index-table { width: 100%; border-collapse: collapse; }
+.index-table th { text-align: left; font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 400; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--ink); }
+.index-table td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.index-table td:first-child { font-family: var(--font-mono); color: var(--accent); width: 4rem; }
+.index-table td:last-child { white-space: nowrap; color: var(--muted); font-size: 0.875rem; }
+.index-table tr.grp td { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); padding-top: 18px; border-bottom: 1px solid var(--ink); }
+.table-scroll { overflow-x: auto; }
+
+/* Group heading */
+.group { display: grid; gap: 24px; }
+.group-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 18px; align-items: baseline; border-top: 2px solid var(--ink); padding-top: 14px; }
+.group-head .gl { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent); letter-spacing: 0.08em; }
+.group-head h2 { font-size: var(--step-2); font-weight: 800; }
+.group-head p { grid-column: 2; color: var(--muted); max-width: 70ch; }
+
+/* Sheet */
+.sheet { background: var(--sheet); border: 1px solid var(--line); display: grid; scroll-margin-top: 16px; }
+.tb { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); border-bottom: 1px solid var(--ink); }
+.tb-no { border-right: 1px solid var(--ink); display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); color: var(--accent); padding: 12px 0; }
+.tb-main { padding: 18px 22px; display: grid; gap: 6px; min-width: 0; }
+.tb-main h3 { font-size: var(--step-2); font-weight: 700; }
+.tb-fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--line); margin: 0; }
+.tb-fields div { padding: 10px 22px; border-right: 1px solid var(--line); display: grid; gap: 2px; min-width: 0; }
+.tb-fields div:last-child { border-right: 0; }
+.tb-fields dd { margin: 0; font-size: 0.9375rem; }
+.tb-fields dt { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; padding: 24px 22px 28px; }
+.body.single { grid-template-columns: minmax(0, 1fr); }
+.body.stack { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.copy { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.copy p { max-width: 66ch; }
+.copy h4 { margin: 0; font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.copy ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 6px; }
+.copy li::marker { color: var(--accent); }
+.cols2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+.cols2 > * { min-width: 0; }
+.spec { width: 100%; border-collapse: collapse; font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
+.spec th { text-align: left; font-weight: 500; color: var(--muted); padding: 6px 12px 6px 0; border-bottom: 1px solid var(--line); width: 42%; vertical-align: top; }
+.spec td { padding: 6px 0; border-bottom: 1px solid var(--line); font-family: var(--font-mono); font-size: 0.875rem; }
+.result { border-left: 3px solid var(--oxide); padding: 4px 0 4px 14px; font-size: 1.0625rem; }
+
+/* Key figures strip */
+.keyfigs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.keyfigs div { padding: 12px 14px 12px 0; display: grid; gap: 2px; }
+.keyfigs strong { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.keyfigs span { font-size: 0.8125rem; color: var(--muted); }
+
+/* Utilisation table */
+.util { width: 100%; border-collapse: collapse; font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+.util th { text-align: left; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 400; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--ink); }
+.util td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.util td.sec { font-family: var(--font-mono); font-size: 0.8125rem; }
+.ubar { display: grid; grid-template-columns: minmax(60px, 1fr) 2.6rem; gap: 8px; align-items: center; }
+.ubar .track { height: 8px; background: var(--accent-soft); position: relative; border-radius: 0 4px 4px 0; }
+.ubar .fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 0 4px 4px 0; }
+.ubar .val { font-family: var(--font-mono); text-align: right; }
+
+/* Bars (CFS) */
+.bars { display: grid; gap: 10px; }
+.bar { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) 4rem; align-items: center; gap: 10px; font-size: 0.875rem; }
+.bar .track { height: 12px; background: var(--accent-soft); position: relative; }
+.bar .fill { position: absolute; inset: 0 auto 0 0; background: var(--oxide); border-radius: 0 4px 4px 0; }
+.bar .val { font-family: var(--font-mono); text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Chart */
+.chart { background: var(--chart-surface); border: 1px solid var(--line); padding: 16px 16px 10px; display: grid; gap: 10px; position: relative; min-width: 0; }
+.chart h4 { margin: 0; font-family: var(--font-body); font-size: 1rem; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--ink); }
+.chart .sub { font-size: 0.8125rem; color: var(--muted); }
+.chart-scroll { overflow-x: auto; }
+.chart svg { display: block; width: 100%; min-width: 520px; height: auto; }
+.chart .grid line { stroke: var(--line); stroke-width: 1; }
+.chart .axis text, .chart .ylab { fill: var(--muted); font-family: var(--font-mono); font-size: 11px; }
+.chart .ref { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.chart .reflab { fill: var(--ink); font-family: var(--font-body); font-size: 12px; font-weight: 500; }
+.chart .zone { fill: var(--oxide); opacity: 0.07; }
+.chart .zonelab { fill: var(--muted); font-family: var(--font-body); font-size: 11px; font-style: italic; }
+.chart .ln { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.chart .pt { stroke: var(--chart-surface); stroke-width: 2; }
+.chart .dl { fill: var(--ink); font-family: var(--font-body); font-size: 12px; }
+.chart .dl tspan.v { fill: var(--muted); font-family: var(--font-mono); font-size: 11px; }
+.chart .hit { fill: transparent; cursor: default; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.8125rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 2px; display: inline-block; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--paper); font-size: 0.8125rem; padding: 6px 9px; border-radius: 3px; line-height: 1.4; white-space: nowrap; }
+.tip b { font-family: var(--font-mono); font-weight: 500; }
+details.data { font-size: 0.875rem; }
+details.data summary { cursor: pointer; color: var(--accent); }
+details.data table { margin-top: 8px; }
+
+/* Figures */
+.figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-content: start; min-width: 0; }
+.figs.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.figs figure { margin: 0; display: grid; gap: 6px; min-width: 0; }
+.figs figure.wide { grid-column: 1 / -1; }
+.figs button { all: unset; cursor: zoom-in; display: block; background: #fff; border: 1px solid var(--line); aspect-ratio: 4 / 3; overflow: hidden; max-width: 100%; }
+.figs figure.wide button { aspect-ratio: 16 / 9; }
+.figs figure.sheetdwg button { aspect-ratio: 1.414 / 1; }
+.figs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.figs img { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; }
+.figs img.photo { object-fit: cover; object-position: center; }
+.figs figcaption { font-size: var(--step--1); color: var(--muted); }
+
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.duo > .sheet { min-width: 0; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.skills div { padding: 16px 20px 16px 0; display: grid; gap: 6px; align-content: start; }
+.skills h3 { font-size: var(--step-1); font-weight: 700; }
+.skills p { color: var(--muted); font-size: 0.9375rem; }
+
+footer { border-top: 1px solid var(--line); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 0.875rem; }
+
+/* Lightbox */
+dialog { border: 0; padding: 0; background: transparent; max-width: min(96vw, 1500px); max-height: 94vh; }
+dialog::backdrop { background: rgba(10, 12, 14, 0.85); }
+dialog img { display: block; max-width: 100%; max-height: 84vh; margin: 0 auto; background: #fff; }
+dialog p { color: #E7E9E5; font-size: 0.9375rem; padding: 10px 4px 0; }
+dialog .close { position: absolute; top: 8px; right: 8px; font-family: var(--font-mono); font-size: 0.8125rem; background: #15191E; color: #E7E9E5; border: 1px solid #59626A; padding: 6px 10px; cursor: pointer; }
+
+@media (max-width: 860px) {
+  .mast-grid, .body, .duo, .skills, .cols2 { grid-template-columns: minmax(0, 1fr); }
+  .creds, .keyfigs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figs.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tb-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tb-fields div:nth-child(2) { border-right: 0; }
+  .tb-fields div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .group-head p { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) {
+  .tb { grid-template-columns: 3.5rem minmax(0, 1fr); }
+  .tb-main, .tb-fields div, .body { padding-left: 14px; padding-right: 14px; }
+  .figs, .figs.three { grid-template-columns: minmax(0, 1fr); }
+  .bar { grid-template-columns: 5rem minmax(0, 1fr) 3.5rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .figs button img { transition: transform 0.3s ease; }
+  .figs button:hover img { transform: scale(1.02); }
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="label">Engineering portfolio</div>
+  <div class="mast-grid">
+    <div>
+      <h1>Yoges Balasubramanian</h1>
+      <p class="role">Graduate Structural and Civil Engineer</p>
+    </div>
+    <div class="contact" aria-label="Contact details">
+      <span>yogsbalu@gmail.com</span>
+      <span>+44 7798 928598</span>
+      <a href="https://www.linkedin.com/in/yogesbalu123" target="_blank" rel="noopener">linkedin.com/in/yogesbalu123</a>
+      <span>Leeds, United Kingdom</span>
+      <a href="Yoges_Balasubramanian_Portfolio.pdf" download>Download PDF portfolio</a>
+    </div>
+  </div>
+  <p class="intro">Structural design, finite element research and site experience from my MSc in Structural Engineering at the University of Leeds and my BEng in Civil Engineering. Projects are grouped by type. Each sheet sets out the brief, my role, the codes and tools I used and what came out of it.</p>
+  <div class="creds">
+    <div><strong>MSc</strong><span>Structural Engineering, University of Leeds</span></div>
+    <div><strong>First Class</strong><span>BEng (Hons) Civil Engineering</span></div>
+    <div><strong>Scopus</strong><span>Indexed journal paper, July 2025</span></div>
+    <div><strong>Patent</strong><span>FRP emergency shelter system</span></div>
+  </div>
+</header>
+
+<section class="index" aria-labelledby="idx">
+  <h2 id="idx">Contents</h2>
+  <div class="table-scroll">
+  <table class="index-table">
+    <thead><tr><th>Sheet</th><th>Project</th><th>Level</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="3">A · Design projects</td></tr>
+      <tr><td>A1</td><td><a href="#woodhouse">Vertical Forest, Woodhouse Lane, Leeds</a></td><td>MSc</td></tr>
+      <tr><td>A2</td><td><a href="#archery">Steel-intensive archery academy with hostel, Chennai</a></td><td>BEng</td></tr>
+      <tr class="grp"><td colspan="3">B · Research</td></tr>
+      <tr><td>B1</td><td><a href="#waam">WAAM stainless steel RHS columns in fire</a></td><td>MSc dissertation</td></tr>
+      <tr><td>B2</td><td><a href="#cfs">Eccentrically loaded cold-formed steel angle columns</a></td><td>BEng final year</td></tr>
+      <tr><td>B3</td><td><a href="#perforated">Buckling of perforated thin-walled columns</a></td><td>BEng</td></tr>
+      <tr class="grp"><td colspan="3">C · Site experience</td></tr>
+      <tr><td>C1</td><td><a href="#highcourt">High Court building, Salem</a></td><td>Internship</td></tr>
+      <tr><td>C2</td><td><a href="#lawcollege">Government Law College building, Namakkal</a></td><td>Internship</td></tr>
+      <tr class="grp"><td colspan="3">D · Innovation</td></tr>
+      <tr><td>D1</td><td><a href="#innovation">FRP shelter patent and supercapacitor bricks</a></td><td>BEng</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============ A. DESIGN ============ -->
+<section class="group" aria-labelledby="g-a">
+  <div class="group-head"><span class="gl">A</span><h2 id="g-a">Design projects</h2><p>Full structural schemes taken from brief to calculations, drawings, cost and programme.</p></div>
+
+<article class="sheet" id="woodhouse">
+  <div class="tb"><div class="tb-no">A1</div><div class="tb-main"><span class="label">MSc structural engineering design project · University of Leeds</span><h3>Vertical Forest, Woodhouse Lane, Leeds</h3></div></div>
+  <dl class="tb-fields">
+    <div><dt>Role</dt><dd>Individual detailed design, after a group concept stage</dd></div>
+    <div><dt>Level</dt><dd>MSc, 2025–26</dd></div>
+    <div><dt>Codes</dt><dd>BS EN 1990 to 1995 and 1997, UK National Annexes</dd></div>
+    <div><dt>Tools</dt><dd>Revit, hand calculations, IStructE Embodied Carbon Calculator</dd></div>
+  </dl>
+  <div class="body stack">
+    <div class="copy">
+      <p>The Woodhouse Lane car park in Leeds sits on a bridge deck over the A58(M) inner ring road. The brief was to replace it with a sustainability-led vertical forest of homes, student rooms and public space, with at least half the building over the existing deck. The precast deck planks cannot take new load, so everything above has to be carried on a new transfer structure.</p>
+      <div class="keyfigs">
+        <div><strong>20</strong><span>storeys, two stepped modular towers</span></div>
+        <div><strong>864</strong><span>homes and rooms (240 apartments, 624 student rooms)</span></div>
+        <div><strong>145</strong><span>kgCO₂e/m² embodied carbon (A1–A5)</span></div>
+        <div><strong>133</strong><span>calculation sheets</span></div>
+      </div>
+    </div>
+    <div class="cols2">
+      <div class="copy">
+        <h4>Concept choice</h4>
+        <p>Two concepts went through a weighted decision matrix. A steel frame with hollow core floors scored 270 and needed 16,855 kN on the existing bridge columns, well above their 11,287 kN capacity. Lightweight volumetric modules with timber cassette floors scored 355 and kept the column load to 10,977 kN, so no column strengthening was needed for that load.</p>
+        <h4>Structural scheme</h4>
+        <ul>
+          <li>Off-site modules with RHS corner columns and PFC edge beams in S355, stacked with bolted splices.</li>
+          <li>C24 timber cassette floors at about a third of the weight of a concrete slab.</li>
+          <li>A 2.0 m deep Pratt transfer truss spanning 19.6 m at level 01 onto the bridge columns and new piles.</li>
+          <li>RC cores with perimeter cross-bracing for lateral stability, checked for robustness as Consequence Class 2B.</li>
+          <li>750 mm CFA piles 15 m deep into sandstone, FRP jacketing and micropile underpinning for the existing structure.</li>
+        </ul>
+      </div>
+      <div class="copy">
+        <h4>Critical element checks (ULS utilisation)</h4>
+        <table class="util">
+          <thead><tr><th>Element</th><th>Section</th><th>Utilisation</th></tr></thead>
+          <tbody>
+            <tr><td>PFC edge beam, 9.6 m</td><td class="sec">PFC 380×100×54</td><td><div class="ubar"><span class="track"><span class="fill" style="width:97%"></span></span><span class="val">0.97</span></div></td></tr>
+            <tr><td>RHS module column</td><td class="sec">RHS 300×200×16</td><td><div class="ubar"><span class="track"><span class="fill" style="width:91%"></span></span><span class="val">0.91</span></div></td></tr>
+            <tr><td>Transfer truss chord</td><td class="sec">UC 356×406×287</td><td><div class="ubar"><span class="track"><span class="fill" style="width:90%"></span></span><span class="val">0.90</span></div></td></tr>
+            <tr><td>RC core wall</td><td class="sec">300 mm C32/40</td><td><div class="ubar"><span class="track"><span class="fill" style="width:84%"></span></span><span class="val">0.84</span></div></td></tr>
+            <tr><td>Timber cassette floor</td><td class="sec">C24 225×47 @ 400</td><td><div class="ubar"><span class="track"><span class="fill" style="width:82%"></span></span><span class="val">0.82</span></div></td></tr>
+            <tr><td>CFA pile (GEO)</td><td class="sec">750 dia × 15 m</td><td><div class="ubar"><span class="track"><span class="fill" style="width:72%"></span></span><span class="val">0.72</span></div></td></tr>
+            <tr><td>Perimeter bracing</td><td class="sec">L 100×75×8</td><td><div class="ubar"><span class="track"><span class="fill" style="width:31%"></span></span><span class="val">0.31</span></div></td></tr>
+          </tbody>
+        </table>
+        <table class="spec">
+          <tr><th>Embodied carbon</th><td>≈ 6,100 tCO₂e against 8,200 for the steel frame concept</td></tr>
+          <tr><th>Tower frequency</th><td>n₁ = 0.70 Hz, floor response factor R = 4.5</td></tr>
+          <tr><th>Programme</th><td>104 weeks, about 20 weeks faster than the steel frame scheme</td></tr>
+          <tr><th>Cost estimate</th><td>≈ £125.3m (Spon’s 2025)</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="figs three">
+      <figure class="wide"><button type="button" data-cap="Concept 2: two stepped modular towers over the existing bridge deck"><img src="img/vf-concept2.jpg" alt="3D view of the chosen modular twin-tower scheme" loading="lazy"></button><figcaption>Chosen scheme: modular twin towers</figcaption></figure>
+      <figure class="sheetdwg"><button type="button" data-cap="GA plan, Level 12, with column schedule (drawn in Revit)"><img src="img/vf-ga-l12.jpg" alt="General arrangement plan at level 12" loading="lazy"></button><figcaption>GA plan, Level 12</figcaption></figure>
+      <figure class="sheetdwg"><button type="button" data-cap="Section north/south through both towers"><img src="img/vf-section-ns.jpg" alt="North-south section through the two towers" loading="lazy"></button><figcaption>Section north/south</figcaption></figure>
+      <figure class="sheetdwg"><button type="button" data-cap="Section east/west showing the transfer level over the bridge deck"><img src="img/vf-section-ew.jpg" alt="East-west section showing the transfer structure" loading="lazy"></button><figcaption>Section east/west, transfer level</figcaption></figure>
+      <figure class="sheetdwg"><button type="button" data-cap="Foundation layout: CFA piles, pile caps and micropile underpinning to existing columns"><img src="img/vf-foundation.jpg" alt="Foundation layout plan" loading="lazy"></button><figcaption>Foundation layout plan</figcaption></figure>
+      <figure><button type="button" data-cap="Construction sequence: podium and transfer level, then modules stacked by tower crane"><img src="img/vf-construction.jpg" alt="Construction sequence with tower crane stacking modules" loading="lazy"></button><figcaption>Construction sequence</figcaption></figure>
+      <figure><button type="button" data-cap="Street view of the vertical forest façade with planted balconies"><img class="photo" src="img/vf-render.jpg" alt="Rendered street view of the planted towers" loading="lazy"></button><figcaption>Vertical forest façade</figcaption></figure>
+    </div>
+  </div>
+</article>
+
+<article class="sheet" id="archery">
+  <div class="tb"><div class="tb-no">A2</div><div class="tb-main"><span class="label">BEng design project · Sona College of Technology</span><h3>Steel-intensive archery academy with hostel, Chennai</h3></div></div>
+  <dl class="tb-fields">
+    <div><dt>Role</dt><dd>Team of three, planning to estimation</dd></div>
+    <div><dt>Level</dt><dd>BEng</dd></div>
+    <div><dt>Codes</dt><dd>IS 800:2007, IS 456:2000, IS 875, NBC 2016</dd></div>
+    <div><dt>Tools</dt><dd>STAAD.Pro, STAAD Foundation, Revit, AutoCAD, Excel</dd></div>
+  </dl>
+  <div class="body">
+    <div class="copy">
+      <p>A G+2 steel hostel for an archery academy with a 50 m cantilever shooting shed along one side. Columns were only allowed along the long sides of the building, which pushed the design towards long-span steel beams and profiled deck composite floors.</p>
+      <table class="spec">
+        <tr><th>Hostel</th><td>50 m × 12.6 m, three storeys</td></tr>
+        <tr><th>Storey heights</th><td>3.6 m ground, 3.0 m upper</td></tr>
+        <tr><th>Archery shed</th><td>50 m × 7.5 m cantilever, open on three sides</td></tr>
+        <tr><th>Floors and walls</th><td>Profiled deck, gypsum board panels</td></tr>
+        <tr><th>Loads</th><td>Dead, live, wind, seismic</td></tr>
+        <tr><th>Estimate</th><td>≈ ₹1.37 crore</td></tr>
+      </table>
+      <h4>What I did</h4>
+      <ul>
+        <li>Drew the plans and sections and set out the column grid.</li>
+        <li>Modelled the frame in STAAD.Pro with load combinations to IS 800:2007, then designed and detailed the critical beams and columns.</li>
+        <li>Checked the critical beam by hand: ISMB 600 over 5 m, plastic section, V = 70 kN against Vd = 944.75 kN, deflection limit L/300 = 16.67 mm.</li>
+        <li>Designed the foundations in STAAD Foundation and built the Revit model.</li>
+        <li>Prepared a detailed Excel estimate covering earthwork, structural steel, deck flooring, drywall and roofing.</li>
+      </ul>
+    </div>
+    <div class="figs">
+      <figure class="wide"><button type="button" data-cap="Revit model of the hostel and archery shed"><img src="img/arch-revit.jpg" alt="Revit rendering of the three-storey hostel" loading="lazy"></button><figcaption>Revit model</figcaption></figure>
+      <figure><button type="button" data-cap="STAAD.Pro 3D steel frame with the cantilever shed"><img src="img/arch-frame.jpg" alt="3D steel frame model" loading="lazy"></button><figcaption>STAAD.Pro steel frame</figcaption></figure>
+      <figure><button type="button" data-cap="Bending moment diagram under the governing load combination"><img src="img/arch-bmd.jpg" alt="Bending moment diagram of the frame" loading="lazy"></button><figcaption>Bending moment diagram</figcaption></figure>
+      <figure><button type="button" data-cap="Ground floor plan with the structural shed for the archery gallery"><img src="img/arch-plan.jpg" alt="Ground floor plan" loading="lazy"></button><figcaption>Ground floor plan</figcaption></figure>
+      <figure><button type="button" data-cap="Section X–X through the hostel and cantilever shed"><img src="img/arch-section.jpg" alt="Building section" loading="lazy"></button><figcaption>Section X–X</figcaption></figure>
+      <figure class="wide"><button type="button" data-cap="STAAD.Pro steel design check for the ISMB 600 beam to IS 800"><img src="img/arch-ismb.jpg" alt="ISMB 600 design check output" loading="lazy"></button><figcaption>ISMB 600 design check</figcaption></figure>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ B. RESEARCH ============ -->
+<section class="group" aria-labelledby="g-b">
+  <div class="group-head"><span class="gl">B</span><h2 id="g-b">Research</h2><p>Buckling studies combining nonlinear finite element modelling, laboratory testing and checks against design codes.</p></div>
+
+<article class="sheet" id="waam">
+  <div class="tb"><div class="tb-no">B1</div><div class="tb-main"><span class="label">MSc dissertation · University of Leeds · Supervisor Dr A. Rahman</span><h3>Structural fire performance of WAAM stainless steel RHS columns</h3></div></div>
+  <dl class="tb-fields">
+    <div><dt>Role</dt><dd>Independent research</dd></div>
+    <div><dt>Level</dt><dd>MSc dissertation</dd></div>
+    <div><dt>Codes</dt><dd>EN 1993-1-4, EN 1993-1-2</dd></div>
+    <div><dt>Tools</dt><dd>Abaqus/CAE 2023, GMNIA, Static Riks, S4R shells</dd></div>
+  </dl>
+  <div class="body stack">
+    <div class="cols2">
+      <div class="copy">
+        <p>Wire arc additive manufacturing (WAAM) 3D-prints steel members. Its material properties at high temperature are now published, but nobody had checked how WAAM columns actually buckle in a fire. I asked whether the EN 1993-1-4 column method, calibrated for conventional stainless steel, can be used for WAAM columns without change.</p>
+        <table class="spec">
+          <tr><th>Sections</th><td>S1 150×100×5, S2 120×80×5, S3 200×120×5 mm</td></tr>
+          <tr><th>Column</th><td>2000 mm, pinned at both ends</td></tr>
+          <tr><th>Temperatures</th><td>20, 200, 400, 600, 800 °C</td></tr>
+          <tr><th>Analyses</th><td>15 GMNIA runs, 20 mm S4R mesh</td></tr>
+          <tr><th>Material</th><td>WAAM ER316LSi, two-stage Ramberg-Osgood</td></tr>
+          <tr><th>Code check</th><td>EN 1993-1-4 buckling curve, α = 0.49</td></tr>
+        </table>
+        <h4>What I did</h4>
+        <ul>
+          <li>Built a two-step GMNIA model: a lateral disturbing force, then Static Riks to peak load.</li>
+          <li>Found and fixed a load introduction error during verification. Added stiffened end zones to S3 to stop local crumpling at the supports.</li>
+          <li>Checked every result against the Euler and squash load bounds.</li>
+          <li>Calculated the matching EN 1993-1-4 resistances with EN 1993-1-2 reduction factors.</li>
+        </ul>
+      </div>
+      <div class="copy">
+        <div class="chart" id="ratio-chart">
+          <h4>FE resistance as a share of the EN 1993-1-4 prediction</h4>
+          <span class="sub">FE/EC3 ratio. Below 1.0 the code over-predicts the column’s strength.</span>
+          <div class="legend" aria-hidden="true">
+            <span><i style="background:var(--s3)"></i>S3 200×120×5 (stockiest)</span>
+            <span><i style="background:var(--s1)"></i>S1 150×100×5</span>
+            <span><i style="background:var(--s2)"></i>S2 120×80×5 (most slender)</span>
+          </div>
+          <div class="chart-scroll">
+          <svg viewBox="0 0 700 330" role="img" aria-label="FE to EN 1993-1-4 ratio against temperature. S3 stays between 1.02 and 1.29. S1 stays between 0.66 and 0.74. S2 stays between 0.42 and 0.45.">
+            <rect class="zone" x="60" y="121.8" width="540" height="178.2"/>
+            <text class="zonelab" x="68" y="290">Code over-predicts resistance</text>
+            <g class="grid">
+              <line x1="60" x2="600" y1="274.5" y2="274.5"/><line x1="60" x2="600" y1="223.6" y2="223.6"/><line x1="60" x2="600" y1="172.7" y2="172.7"/><line x1="60" x2="600" y1="70.9" y2="70.9"/><line x1="60" x2="600" y1="20" y2="20"/>
+            </g>
+            <g class="axis">
+              <text x="50" y="278.5" text-anchor="end">0.4</text><text x="50" y="227.6" text-anchor="end">0.6</text><text x="50" y="176.7" text-anchor="end">0.8</text><text x="50" y="125.8" text-anchor="end">1.0</text><text x="50" y="74.9" text-anchor="end">1.2</text><text x="50" y="24" text-anchor="end">1.4</text>
+              <text x="60" y="318" text-anchor="middle">20</text><text x="184.6" y="318" text-anchor="middle">200</text><text x="323.1" y="318" text-anchor="middle">400</text><text x="461.5" y="318" text-anchor="middle">600</text><text x="600" y="318" text-anchor="middle">800 °C</text>
+            </g>
+            <line class="ref" x1="60" x2="600" y1="121.8" y2="121.8"/>
+            <text class="reflab" x="200" y="114">FE = code (ratio 1.0)</text>
+            <polyline class="ln" style="stroke:var(--s3)" points="60,113.2 184.6,117.5 323.1,115.7 461.5,114.7 600,48.8"/>
+            <polyline class="ln" style="stroke:var(--s1)" points="60,207.9 184.6,204.8 323.1,200.7 461.5,202.3 600,188.3"/>
+            <polyline class="ln" style="stroke:var(--s2)" points="60,269.5 184.6,269.2 323.1,266.9 461.5,267.7 600,262.8"/>
+            <g id="pts"></g>
+            <text class="dl" x="610" y="52">S3 <tspan class="v">1.29</tspan></text>
+            <text class="dl" x="610" y="192">S1 <tspan class="v">0.74</tspan></text>
+            <text class="dl" x="610" y="267">S2 <tspan class="v">0.45</tspan></text>
+          </svg>
+          </div>
+          <div class="tip" id="tip" hidden></div>
+          <details class="data"><summary>Show data table</summary>
+            <div class="table-scroll">
+            <table class="spec">
+              <tr><th>Section</th><td>20 · 200 · 400 · 600 · 800 °C</td></tr>
+              <tr><th>S1 FE/EC3</th><td>0.662 · 0.674 · 0.690 · 0.684 · 0.739</td></tr>
+              <tr><th>S2 FE/EC3</th><td>0.420 · 0.421 · 0.430 · 0.427 · 0.446</td></tr>
+              <tr><th>S3 FE/EC3</th><td>1.034 · 1.017 · 1.024 · 1.028 · 1.287</td></tr>
+            </table>
+            </div>
+          </details>
+        </div>
+        <p class="result">The slender sections reached as little as 42% of the code prediction while the stockiest section met or beat it everywhere. The unmodified EN 1993-1-4 curve cannot yet be called safe for WAAM stainless steel RHS columns in fire.</p>
+        <table class="spec">
+          <tr><th>Capacity lost by 800 °C</th><td>S1 51.2%, S2 51.5%, S3 46.9%</td></tr>
+          <tr><th>S3 at 800 °C</th><td>421.8 kN against 406.1 kN squash load, so the failure shifted to yielding</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="figs">
+      <figure><button type="button" data-cap="Meshed RHS column model (S4R shells, 20 mm seed)"><img src="img/waam-mesh.jpg" alt="Meshed rectangular hollow section column in Abaqus" loading="lazy"></button><figcaption>Meshed model, S1</figcaption></figure>
+      <figure><button type="button" data-cap="Deformed shape of S1 at peak load, 20 °C"><img src="img/waam-s1.jpg" alt="S1 buckled at peak load" loading="lazy"></button><figcaption>S1 at peak load, 20 °C</figcaption></figure>
+      <figure><button type="button" data-cap="Deformed shape of S2 at peak load, 20 °C"><img src="img/waam-s2.jpg" alt="S2 buckled at peak load" loading="lazy"></button><figcaption>S2 at peak load, 20 °C</figcaption></figure>
+      <figure><button type="button" data-cap="Deformed shape of S3 at peak load, 800 °C, with negligible lateral deflection"><img src="img/waam-s3-800.jpg" alt="S3 at 800 °C showing squash failure" loading="lazy"></button><figcaption>S3 at 800 °C, squash failure</figcaption></figure>
+    </div>
+  </div>
+</article>
+
+<article class="sheet" id="cfs">
+  <div class="tb"><div class="tb-no">B2</div><div class="tb-main"><span class="label">BEng final year project · Published in a Scopus-indexed journal</span><h3>Eccentrically loaded cold-formed steel angle columns with intermediate stiffeners</h3></div></div>
+  <dl class="tb-fields">
+    <div><dt>Role</dt><dd>Team of three, testing and FE modelling</dd></div>
+    <div><dt>Level</dt><dd>BEng final year</dd></div>
+    <div><dt>Method</dt><dd>Laboratory tests and FE</dd></div>
+    <div><dt>Tools</dt><dd>ABAQUS (S4R shells), CUFSM, LVDT</dd></div>
+  </dl>
+  <div class="body">
+    <div class="copy">
+      <p>Cold-formed steel angles are light and efficient but sensitive to how the load is applied. We tested angle columns with V, U and Σ shaped intermediate stiffeners under concentric and eccentric compression, then built FE models to extend the results.</p>
+      <ul>
+        <li>Tested specimens 250 to 1500 mm long at eccentricities up to 120 mm in a compression testing machine, with an LVDT recording axial shortening.</li>
+        <li>Checked local, distortional and global buckling modes in CUFSM.</li>
+        <li>Built ABAQUS shell models using eigenvalue buckling then Static Riks, with geometric imperfections and material nonlinearity.</li>
+        <li>Validated the model against published tests (test/FE 0.96 to 0.98) and our own tests (mean 0.94, standard deviation 0.027).</li>
+      </ul>
+      <h4>Drop in buckling load when the eccentricity acts towards the weaker axis</h4>
+      <div class="bars" role="img" aria-label="Buckling load reduction: V stiffener 68.9 percent, Σ stiffener 50.4 percent, U stiffener 49.0 percent">
+        <div class="bar"><span>V stiffener</span><span class="track"><span class="fill" style="width:68.9%"></span></span><span class="val">68.9%</span></div>
+        <div class="bar"><span>Σ stiffener</span><span class="track"><span class="fill" style="width:50.42%"></span></span><span class="val">50.4%</span></div>
+        <div class="bar"><span>U stiffener</span><span class="track"><span class="fill" style="width:49%"></span></span><span class="val">49.0%</span></div>
+      </div>
+      <p class="result">Eccentricity towards the stiffer axis changed the capacity only slightly. The study proposed a design curve for engineering practice and was published in July 2025.</p>
+    </div>
+    <div class="figs">
+      <figure class="wide"><button type="button" data-cap="Specimens before and after testing, with the LVDT mounted beside the column"><img class="photo" src="img/cfs-test.jpg" alt="Steel angle specimens in the compression testing machine" loading="lazy"></button><figcaption>Test set-up with LVDT</figcaption></figure>
+      <figure><button type="button" data-cap="Buckled specimen after eccentric loading"><img class="photo" src="img/cfs-buckled.jpg" alt="Buckled cold-formed steel angle specimen" loading="lazy"></button><figcaption>Buckled specimen</figcaption></figure>
+      <figure><button type="button" data-cap="Σ stiffener specimen after testing"><img class="photo" src="img/cfs-sigma.jpg" alt="Sigma stiffened angle column after testing" loading="lazy"></button><figcaption>Σ stiffener specimen</figcaption></figure>
+      <figure class="wide"><button type="button" data-cap="ABAQUS shell model of the stiffened angle with loading and boundary conditions"><img src="img/cfs-fe.jpg" alt="Finite element model of the stiffened angle column" loading="lazy"></button><figcaption>ABAQUS shell model</figcaption></figure>
+    </div>
+  </div>
+</article>
+
+<article class="sheet" id="perforated">
+  <div class="tb"><div class="tb-no">B3</div><div class="tb-main"><span class="label">BEng project · Numerical study</span><h3>Buckling behaviour of perforated thin-walled columns</h3></div></div>
+  <dl class="tb-fields">
+    <div><dt>Role</dt><dd>Team of three, FE modelling</dd></div>
+    <div><dt>Level</dt><dd>BEng</dd></div>
+    <div><dt>Variables</dt><dd>Hole shape, opening ratio, spacing ratio</dd></div>
+    <div><dt>Tools</dt><dd>ABAQUS linear and nonlinear buckling</dd></div>
+  </dl>
+  <div class="body">
+    <div class="copy">
+      <p>Openings in a column web save weight and let services pass through, but they cut the buckling capacity. We modelled 250 mm long composite C-section columns with circular and square openings to find which layouts keep the most strength.</p>
+      <ul>
+        <li>Varied hole shape, opening ratio D/D0 and spacing ratio S/D0 and compared each case with a column without holes.</li>
+        <li>Ran linear eigenvalue and nonlinear analyses to capture buckling and post-buckling behaviour.</li>
+      </ul>
+      <table class="spec">
+        <tr><th>Circular holes</th><td>9.6% to 24% loss of buckling load</td></tr>
+        <tr><th>Square holes</th><td>10.2% to 56.4% loss of buckling load</td></tr>
+        <tr><th>Best circular layout</th><td>D/D0 = 1.5, S/D0 = 1.6</td></tr>
+        <tr><th>Best square layout</th><td>D/D0 = 2, S/D0 = 1.67</td></tr>
+      </table>
+    </div>
+    <div class="figs">
+      <figure><button type="button" data-cap="Column model with circular openings"><img src="img/perf-circ.jpg" alt="C-section with circular holes" loading="lazy"></button><figcaption>Circular openings</figcaption></figure>
+      <figure><button type="button" data-cap="Meshed column with square openings"><img src="img/perf-mesh.jpg" alt="Meshed C-section with square holes" loading="lazy"></button><figcaption>Square openings, meshed</figcaption></figure>
+      <figure><button type="button" data-cap="First buckling mode, circular openings"><img src="img/perf-circ-mode.jpg" alt="Buckling mode with circular holes" loading="lazy"></button><figcaption>Buckling mode, circular</figcaption></figure>
+      <figure><button type="button" data-cap="First buckling mode, square openings"><img src="img/perf-sq-mode.jpg" alt="Buckling mode with square holes" loading="lazy"></button><figcaption>Buckling mode, square</figcaption></figure>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ C. SITE ============ -->
+<section class="group" aria-labelledby="g-c">
+  <div class="group-head"><span class="gl">C</span><h2 id="g-c">Site experience</h2><p>Two internships on government building projects in Tamil Nadu, from setting out to finishing works.</p></div>
+<div class="duo">
+<article class="sheet" id="highcourt">
+  <div class="tb"><div class="tb-no">C1</div><div class="tb-main"><span class="label">Site internship · Government project</span><h3>High Court building, Salem</h3></div></div>
+  <dl class="tb-fields">
+    <div><dt>Role</dt><dd>Site intern</dd></div>
+    <div><dt>Date</dt><dd>Apr – Aug 2025</dd></div>
+    <div><dt>Standards</dt><dd>IS codes, NBC</dd></div>
+    <div><dt>Kit</dt><dd>DGPS, total station, drone</dd></div>
+  </dl>
+  <div class="body single">
+    <div class="copy">
+      <ul>
+        <li>Carried out site surveys with DGPS, total stations and drones for setting out and progress monitoring.</li>
+        <li>Prepared reinforcement detailing for beams, transfer structures and prestressed elements.</li>
+        <li>Ran slump tests and cube tests on around 100 concrete cubes and reported results to the Assistant Engineer.</li>
+        <li>Supported full-day concrete pours with quality checks and site safety.</li>
+        <li>Wrote daily progress reports and attended progress meetings with contractors.</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sheet" id="lawcollege">
+  <div class="tb"><div class="tb-no">C2</div><div class="tb-main"><span class="label">Site internship · Public Works Department</span><h3>Government Law College building, Namakkal</h3></div></div>
+  <dl class="tb-fields">
+    <div><dt>Role</dt><dd>Site intern</dd></div>
+    <div><dt>Date</dt><dd>Jun – Sep 2024</dd></div>
+    <div><dt>Contractor</dt><dd>P&amp;C Constructions, Erode</dd></div>
+    <div><dt>Structure</dt><dd>RC frame, prestressed beams</dd></div>
+  </dl>
+  <div class="body single">
+    <div class="copy">
+      <ul>
+        <li>Carried out site and column marking and supervised excavation for isolated footings, checking depths, dimensions and levels.</li>
+        <li>Checked reinforcement for columns, beams and slabs: 16 and 20 mm main bars with 8 mm stirrups at 150 mm.</li>
+        <li>Supported shuttering and column concreting placed in layers to avoid segregation.</li>
+        <li>Studied the prestressed beams used for spans over 10 m and how draped tendons raise capacity and cut deflection.</li>
+        <li>Worked out quantities of cement, aggregates, water and bricks and compared market rates.</li>
+      </ul>
+    </div>
+  </div>
+</article>
+</div>
+</section>
+
+<!-- ============ D. INNOVATION ============ -->
+<section class="group" aria-labelledby="g-d">
+  <div class="group-head"><span class="gl">D</span><h2 id="g-d">Innovation</h2><p>Ideas taken from concept to a working product.</p></div>
+<article class="sheet" id="innovation">
+  <div class="tb"><div class="tb-no">D1</div><div class="tb-main"><span class="label">Patent and research</span><h3>FRP shelter patent and supercapacitor bricks</h3></div></div>
+  <div class="body">
+    <div class="copy">
+      <h4>Patent: FRP emergency shelter system</h4>
+      <p>A lightweight, modular fibre reinforced polymer shelter that can be put up quickly after a disaster.</p>
+    </div>
+    <div class="copy">
+      <h4>Supercapacitor bricks</h4>
+      <p>Fabricated and tested construction bricks with embedded energy storage, looking at how walls could store energy in smart buildings.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<section aria-labelledby="sk">
+  <div class="group-head"><span class="gl">·</span><h2 id="sk">Skills and software</h2></div>
+  <div class="skills" style="margin-top:16px">
+    <div><h3>Analysis and design</h3><p>Hand calculations, ETABS, STAAD.Pro, STAAD Foundation, ABAQUS (GMNIA, Riks, eigenvalue buckling), CUFSM.</p></div>
+    <div><h3>Codes</h3><p>Eurocodes EN 1990 to 1995 and EN 1997 with UK National Annexes, EN 1993-1-2 fire design, IS 800, IS 456, IS 875, NBC 2016.</p></div>
+    <div><h3>Drawings and BIM</h3><p>Revit GA plans, sections and foundation layouts, AutoCAD, SketchUp, Excel estimates.</p></div>
+    <div><h3>Sustainability</h3><p>IStructE Embodied Carbon Calculator, LETI and RIBA 2030 benchmarks, low-carbon material choice.</p></div>
+    <div><h3>Site</h3><p>DGPS, total station and drone surveys, setting out, slump and cube testing, reinforcement checks.</p></div>
+    <div><h3>Membership</h3><p>Graduate Member of the Institution of Structural Engineers, working towards chartership.</p></div>
+  </div>
+</section>
+
+<footer>
+  <span>Yoges Balasubramanian · Graduate Structural and Civil Engineer</span>
+  <span>yogsbalu@gmail.com · +44 7798 928598</span>
+</footer>
+
+</div>
+
+<dialog id="lb" aria-label="Enlarged figure">
+  <button class="close" type="button" id="lb-close">Close ✕</button>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
+<script>
+(function () {
+  var dlg = document.getElementById('lb');
+  var img = document.getElementById('lb-img');
+  var cap = document.getElementById('lb-cap');
+  document.querySelectorAll('.figs button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var i = b.querySelector('img');
+      img.src = i.getAttribute('src');
+      img.alt = i.alt;
+      cap.textContent = b.getAttribute('data-cap') || '';
+      if (dlg.showModal) dlg.showModal();
+    });
+  });
+  document.getElementById('lb-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+
+  // Chart points and hover tooltips
+  var temps = [20, 200, 400, 600, 800];
+  var xs = [60, 184.6, 323.1, 461.5, 600];
+  var series = [
+    { name: 'S3 200×120×5', color: 'var(--s3)', v: [1.034, 1.017, 1.024, 1.028, 1.287] },
+    { name: 'S1 150×100×5', color: 'var(--s1)', v: [0.662, 0.674, 0.690, 0.684, 0.739] },
+    { name: 'S2 120×80×5', color: 'var(--s2)', v: [0.420, 0.421, 0.430, 0.427, 0.446] }
+  ];
+  function y(v) { return 300 - (v - 0.3) / 1.1 * 280; }
+  var g = document.getElementById('pts');
+  var tip = document.getElementById('tip');
+  var box = document.getElementById('ratio-chart');
+  var NS = 'http://www.w3.org/2000/svg';
+  series.forEach(function (s) {
+    s.v.forEach(function (v, i) {
+      var c = document.createElementNS(NS, 'circle');
+      c.setAttribute('class', 'pt'); c.setAttribute('cx', xs[i]); c.setAttribute('cy', y(v)); c.setAttribute('r', 4.5);
+      c.style.fill = s.color; g.appendChild(c);
+      var h = document.createElementNS(NS, 'circle');
+      h.setAttribute('class', 'hit'); h.setAttribute('cx', xs[i]); h.setAttribute('cy', y(v)); h.setAttribute('r', 13);
+      h.addEventListener('mouseenter', function (e) {
+        tip.innerHTML = s.name + ' at ' + temps[i] + ' °C<br>FE/EC3 <b>' + v.toFixed(3) + '</b>';
+        tip.hidden = false;
+        var r = box.getBoundingClientRect(), t = e.target.getBoundingClientRect();
+        var left = t.left - r.left + t.width / 2 + 10;
+        if (left > r.width - 170) left = t.left - r.left - 170;
+        tip.style.left = left + 'px'; tip.style.top = (t.top - r.top - 8) + 'px';
+      });
+      h.addEventListener('mouseleave', function () { tip.hidden = true; });
+      g.appendChild(h);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
